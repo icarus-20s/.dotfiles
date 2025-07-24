@@ -67,7 +67,6 @@ alias activate="source ./.venv/bin/activate"
 alias uvenv="uv venv"
 alias ur="uv run"
  
-alias -g su='sudo'
 alias -g F='| fzf'
 alias -g G='| grep -i'
 alias -g H='| __head'
@@ -199,3 +198,6 @@ eval "$(zoxide init zsh)"
 [[ -f /home/ayush/.dart-cli-completion/zsh-config.zsh ]] && . /home/ayush/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/ayush/.lmstudio/bin"

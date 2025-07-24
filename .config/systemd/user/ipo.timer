@@ -3,7 +3,7 @@ Description=Automatic IPO apply
 
 [Timer]
 OnBootSec=600
-OnCalendar=weekly
+OnCalendar=daily
 Persistent=true
 
 [Install]

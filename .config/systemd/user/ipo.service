@@ -3,6 +3,7 @@ Description=Automatic IPO
 
 [Service]
 Type=simple
-ExecStart=/home/ayush/Code/Python/MeroShare-IPO/ipo.py --default True
+WorkingDirectory=/home/ayush/Code/github/MeroShare-IPO
+ExecStart=/home/ayush/Code/github/MeroShare-IPO/main.py ipo
 TimeoutSec=300
 
