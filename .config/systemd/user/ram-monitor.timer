@@ -1,0 +1,10 @@
+[Unit]
+Description=Run RAM Monitor every 10 seconds
+
+[Timer]
+OnBootSec=10s
+OnUnitActiveSec=10s
+Unit=ram-monitor.service
+
+[Install]
+WantedBy=default.target

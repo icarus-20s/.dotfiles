@@ -1,0 +1,8 @@
+[Unit]
+Description=RAM Monitor One-shot Service
+
+[Service]
+Type=oneshot
+ExecStart=/home/ayush/Code/ram-monitor/Ram-monitor.py
+WorkingDirectory=/home/ayush/Code/ram-monitor
+
