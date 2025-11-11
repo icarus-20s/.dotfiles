@@ -3,3 +3,4 @@ swappy/
 explicit_filter.restore
 *.log
 cache/
+*.AppImage

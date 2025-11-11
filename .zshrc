@@ -66,7 +66,7 @@ alias venv="virtualenv"
 alias activate="source ./.venv/bin/activate"
 alias uvenv="uv venv"
 alias ur="uv run"
- 
+alias studymode='sudo /usr/local/bin/study_mode.sh' 
 alias -g F='| fzf'
 alias -g G='| grep -i'
 alias -g H='| __head'

@@ -30,13 +30,19 @@
         "hyprland/window",
         "custom/r_end",
         "custom/l_end",
-        "custom/powerprofiles",
-        "custom/supergfx",
+        //"custom/powerprofiles",
+        // "custom/supergfx",
+        "custom/vocab",
         "custom/r_end",
         "custom/padd"
     ],
+
     "modules-right": [
         "custom/padd",
+        "custom/l_end",
+        "custom/powerprofiles",
+        "custom/supergfx",
+        "custom/r_end",
         "custom/l_end",
         "custom/spotify",
         "hyprland/submap",
@@ -55,6 +61,7 @@
         "custom/power",
         "custom/r_end",
         "custom/padd"
+
     ],
     
     // sourced from modules based on config.ctl //
@@ -70,6 +77,20 @@
             "Hybrid": "changegpustate.sh -h"
         }
     },
+
+    "custom/vocab": {
+        "exec": "/home/ayush/Code/vocab-builder/vocabplayer.py --next",
+        "format": "{}",
+        "rotate": 0,
+        "return-type": "json",
+        "on-click": "/home/ayush/Code/vocab-builder/vocabplayer.py --next",
+        "on-click-right": "/home/ayush/Code/vocab-builder/vocabplayer.py --prev",
+        "on-click-middle": "/home/ayush/Code/vocab-builder/vocabplayer.py --next-group",
+        "on-scroll-down": "/home/ayush/Code/vocab-builder/vocabplayer.py --prev-group",
+        "tooltip": true,
+        "interval": 600
+    },
+
 
     "custom/powerprofiles": {
         "format": "{} |",
