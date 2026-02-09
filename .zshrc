@@ -17,7 +17,7 @@ export NSXIV_OPTS="/home/ayush/Misc/wallpaper/"
 
 stty -ixon
 
-	
+typeset -U path PATH	
 mcd() {
     mkdir -p "$1" && cd "$1"
 }
@@ -75,8 +75,6 @@ alias -g W='| wc -l'
 alias -g C='| wl-copy'
 alias -g rp='realpath'
 alias -g P='| bat --pager "less -RF"'
-
-
 alias p='bat --pager "less -RF"'
 alias key='showkey -a'
 alias l='eza -lh --icons=auto'
@@ -100,6 +98,22 @@ alias -g statu='systemctl --user status'
 alias hc='hyprctl'
 alias dockers='docker stop $(docker ps -q) && sudo systemctl stop docker.socket docker'
 
+alias iphone-mount='mkdir -p ~/mnt/iPhone && ifuse ~/mnt/iPhone'
+alias iphone-umount='fusermount -u ~/mnt/iPhone'
+alias free-my-iphone='
+iphone-mount && \
+echo "Starting backup from iPhone → ~/Pictures/iPhone ..." && \
+mkdir -p ~/Pictures/iPhone && \
+rsync -avh --progress --ignore-existing ~/mnt/iPhone/DCIM/ ~/Pictures/iPhone/ && \
+echo "Backup complete. Deleting files from iPhone..." && \
+find ~/mnt/iPhone/DCIM -type f \( \
+  -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.heic" -o \
+  -iname "*.mov" -o -iname "*.mp4" \
+\) -exec rm {} \; && \
+echo "Files deleted from iPhone. Remember to empty Recently Deleted on iPhone to free space!" && \
+iphone-umount
+'
+
 alias c='clear'
 alias nf='fastfetch'
 alias ff='fastfetch'
@@ -115,7 +129,6 @@ alias eu='nano ~/.zshrc_util'
 alias reload='source ~/.zshrc'
 alias r='source ~/.zshrc'
 alias rr='clear && source ~/.zshrc'
-
 alias dep='pactree -r'
 aurhelper='yay'
 alias un='$aurhelper -Rns'
@@ -199,5 +212,14 @@ eval "$(zoxide init zsh)"
 ## [/Completion]
 
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/ayush/.lmstudio/bin"
+
+export ANDROID_HOME=/home/ayush/Android/Sdk
+export ANDROID_SDK_ROOT=/home/ayush/Android/Sdk
+
+export PATH=$ANDROID_HOME/emulator:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/tools/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
+

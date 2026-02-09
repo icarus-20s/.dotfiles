@@ -53,7 +53,7 @@ Arch = ""
 [username]
 style_user = "bold white"
 style_root = "bold black"
-format = "[$user]($style) "
+format = "[noob]($style) "
 disabled = false             # disable in powershell
 show_always = true
 
@@ -131,4 +131,3 @@ disabled = false
 [kubernetes.context_aliases]
 "clcreative-k8s-staging" = "cl-k8s-staging"
 "clcreative-k8s-production" = "cl-k8s-prod"
-
