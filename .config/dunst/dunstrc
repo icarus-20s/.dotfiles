@@ -449,15 +449,15 @@
     timeout = 0
 
 [urgency_low]
-    background = "#6583A380"
-    foreground = "#CCE5FFE6"
-    frame_color = "#6583A303"
+    background = "#7065A380"
+    foreground = "#D5CCFFE6"
+    frame_color = "#7065A303"
     icon = "/home/ayush/.config/dunst/icons/hyprdots.svg"
     timeout = 5
 
 [urgency_normal]
-    background = "#3A4C6B80"
-    foreground = "#CCDEFFE6"
-    frame_color = "#3A4C6B03"
+    background = "#6B4A3A80"
+    foreground = "#FFDDCCE6"
+    frame_color = "#6B4A3A03"
     icon = "/home/ayush/.config/dunst/icons/hyprdots.svg"
     timeout = 5

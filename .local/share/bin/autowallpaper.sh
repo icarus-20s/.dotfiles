@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
-wallpaperDirectory="/home/ayush/Misc/Wallpapers"
+# Start daemon if not running
+if ! pgrep -x "awww-daemon" > /dev/null; then
+    awww-daemon &
+    sleep 0.5
+fi
 
-# choose random wallpaper from directory including subdirectories and set it as wallpaper
-
-randomWallpaper=$(realpath "$(find "$wallpaperDirectory" -type f | shuf -n 1)")
-
-swwwallpaper.sh -s "$randomWallpaper" &> /dev/null
-notify-send "Auto Wallpaper" -i "$randomWallpaper" "Wallpaper changed"
+# Launch wallpaper script in background
+"$HOME/.dotfiles/.local/share/bin/swwwallpaper.sh" &
