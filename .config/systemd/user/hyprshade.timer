@@ -2,7 +2,6 @@
 Description=Apply screen filter on schedule
 
 [Timer]
-OnBootSec=200
 OnCalendar=*-*-* 06:00:00
 OnCalendar=*-*-* 16:00:00
 
