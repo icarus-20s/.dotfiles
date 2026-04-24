@@ -213,15 +213,6 @@ eval "$(zoxide init zsh)"
 
 
 
-export ANDROID_HOME=/home/ayush/Android/Sdk
-export ANDROID_SDK_ROOT=/home/ayush/Android/Sdk
-
-export PATH=$ANDROID_HOME/emulator:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/tools/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH:$HOME/go/bin
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"

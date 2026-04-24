@@ -32,7 +32,6 @@
         "custom/l_end",
         //"custom/powerprofiles",
         // "custom/supergfx",
-        "custom/vocab",
         "custom/r_end",
         "custom/padd"
     ],
@@ -76,19 +75,6 @@
             "Integrated": "changegpustate.sh -i",
             "Hybrid": "changegpustate.sh -h"
         }
-    },
-
-    "custom/vocab": {
-        "exec": "/home/ayush/Code/vocab-builder/vocabplayer.py --next",
-        "format": "{}",
-        "rotate": 0,
-        "return-type": "json",
-        "on-click": "/home/ayush/Code/vocab-builder/vocabplayer.py --next",
-        "on-click-right": "/home/ayush/Code/vocab-builder/vocabplayer.py --prev",
-        "on-click-middle": "/home/ayush/Code/vocab-builder/vocabplayer.py --next-group",
-        "on-scroll-down": "/home/ayush/Code/vocab-builder/vocabplayer.py --prev-group",
-        "tooltip": true,
-        "interval": 600
     },
 
 
@@ -256,7 +242,7 @@
     },
 
     "backlight": {
-        "device": "amdgpu_bl0",
+        "device": "nvidia_wmi_ec_backlight",
         "rotate": 0,
         "format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
@@ -303,7 +289,7 @@
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "rotate": 0,
-        "format-source": "",
+        "format-source": "",
         "format-source-muted": "",
         "on-click": "volumecontrol.sh -i m",
         "on-click-right": "pavucontrol -t 4",
