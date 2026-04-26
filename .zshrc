@@ -216,3 +216,6 @@ eval "$(zoxide init zsh)"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH:$HOME/go/bin
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# opencode
+export PATH=/home/ayush/.opencode/bin:$PATH

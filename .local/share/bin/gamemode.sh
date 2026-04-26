@@ -1,29 +1,43 @@
 #!/usr/bin/env sh
-HYPRGAMEMODE=$(hyprctl getoption animations:enabled | sed -n '1p' | awk '{print $2}')
 
-# Waybar performance
-FILE="$HOME/.config/waybar/style.css"
+SECONDARY="HDMI-A-1"
+STATE_FILE="/tmp/hypr_gamemode"
 
-sed -i 's/\/\* \(.*animation:.*\) \*\//\1/g' $FILE
-sed -i 's/\/\* \(.*transition:.*\) \*\//\1/g' $FILE
-if [ $HYPRGAMEMODE = 1 ]; then
-	sed -i 's/^\(.*animation:.*\)$/\/\* \1 \*\//g' $FILE
-	sed -i 's/^\(.*transition:.*\)$/\/\* \1 \*\//g' $FILE
-fi
-killall waybar
-waybar >/dev/null 2>&1 &
+# ─────────────────────────────
+# ENABLE GAMEMODE
+# ─────────────────────────────
+if [ ! -f "$STATE_FILE" ]; then
 
-# Hyprland performance
-if [ $HYPRGAMEMODE = 1 ]; then
-	hyprctl --batch "\
-        keyword animations:enabled 0;"
-        # keyword decoration:drop_shadow 0;\
-        # keyword decoration:blur:enabled 0;\
-        # keyword general:gaps_in 0;\
-        # keyword general:gaps_out 0;\
-        # keyword general:border_size 1;\
-        # keyword decoration:rounding 0"
-	exit
+    # Disable second monitor
+    hyprctl keyword monitor "$SECONDARY,disable"
+
+    # Disable animations (faster input feel)
+    hyprctl keyword animations:enabled 0
+
+    # Optional: kill Waybar (clean FPS boost)
+    pkill waybar
+
+    # mark state
+    touch "$STATE_FILE"
+
+    notify-send "Game Mode" "Enabled 🎮"
+
+# ─────────────────────────────
+# DISABLE GAMEMODE
+# ─────────────────────────────
 else
-	hyprctl reload
+
+    # Restore monitor
+    hyprctl keyword monitor "$SECONDARY,preferred,auto,1"
+
+    # Re-enable animations
+    hyprctl keyword animations:enabled 1
+
+    # Restart Waybar
+    waybar &
+
+    # remove state
+    rm "$STATE_FILE"
+
+    notify-send "Game Mode" "Disabled 🖥️"
 fi

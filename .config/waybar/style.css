@@ -9,96 +9,89 @@
 
 @import "theme.css";
 
+/* ── Bar window ── */
 window#waybar {
-    /* background: @bar-bg; */
-	background: transparent;
+    background: transparent;
 }
 
 window#waybar.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
- 
+
+/* ── Tooltip ── */
 tooltip {
     background: @main-bg;
     color: @main-fg;
-    border-radius: 7px;
-    border-width: 0px;
+    border-radius: 14px;
+    border: 1px solid @glass-border;
+    box-shadow: 0 8px 32px @shadow-dark;
 }
 
+/* ── Workspaces ── */
 #workspaces button {
     box-shadow: none;
-	text-shadow: none;
-    padding: 0px;
-    border-radius: 8px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    margin-left: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
-    margin-right: 0px;
+    text-shadow: none;
+    border-radius: 999px;
+    margin: 3px 1px;
+    padding: 0 6px;
     color: @main-fg;
-/*     animation: ws_normal 20s ease-in-out 1; */
+    background: transparent;
+    /* transition: all 0.18s ease; */
 }
 
 #workspaces button.active {
     background: @wb-act-bg;
     color: @wb-act-fg;
-    margin-left: 2px;
-    padding-left: 11px;
-    padding-right: 11px;
-    margin-right: 2px;
-/*     animation: ws_active 20s ease-in-out 1; */
-/*     transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682); */
+    border-radius: 999px;
+    margin: 3px 2px;
+    padding: 0 14px;
+    box-shadow: 0 0 12px @neon-glow, 0 0 3px @neon-glow;
 }
 
 #workspaces button:hover {
     background: @wb-hvr-bg;
     color: @wb-hvr-fg;
-/*     animation: ws_hover 20s ease-in-out 1; */
-/*     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682); */
+    border-radius: 999px;
+    box-shadow: 0 0 7px @neon-glow-soft;
 }
 
+/* ── Taskbar ── */
 #taskbar button {
     box-shadow: none;
-	text-shadow: none;
-    padding: 0px;
-    border-radius: 8px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    margin-left: 0px;
-    padding-left: 2px;
-    padding-right: 2px;
-    margin-right: 0px;
+    text-shadow: none;
+    border-radius: 999px;
+    margin: 3px 1px;
+    padding: 0 6px;
     color: @wb-color;
-/*     animation: tb_normal 20s ease-in-out 1; */
+    background: transparent;
+    /* transition: all 0.18s ease; */
 }
 
 #taskbar button.active {
     background: @wb-act-bg;
     color: @wb-act-color;
-    margin-left: 2px;
-    padding-left: 11px;
-    padding-right: 11px;
-    margin-right: 2px;
-/*     animation: tb_active 20s ease-in-out 1; */
-/*     transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682); */
+    border-radius: 999px;
+    margin: 3px 2px;
+    padding: 0 14px;
+    box-shadow: 0 0 12px @neon-glow;
 }
 
 #taskbar button:hover {
     background: @wb-hvr-bg;
     color: @wb-hvr-color;
-/*     animation: tb_hover 20s ease-in-out 1; */
-/*     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682); */
+    border-radius: 999px;
 }
 
+/* ── Tray ── */
 #tray menu * {
-    min-height: 16px
+    min-height: 16px;
 }
 
 #tray menu separator {
-    min-height: 10px
+    min-height: 10px;
 }
 
+/* ── ALL MODULE SEGMENTS ── */
 #backlight,
 #battery,
 #bluetooth,
@@ -139,9 +132,10 @@ tooltip {
     color: @main-fg;
     background: @main-bg;
     opacity: 1;
-    margin: 3px 0px 3px 0px;
-    padding-left: 4px;
-    padding-right: 4px;
+    margin: 4px 0;
+    padding: 0 8px;
+    border-top: 1px solid @glass-rim-top;
+    border-bottom: 1px solid @glass-rim-bottom;
 }
 
 #workspaces,
@@ -149,39 +143,104 @@ tooltip {
     padding: 0px;
 }
 
+/* ── Drop shadow on each pill ── */
+#custom-r_end,
+#custom-rr_end,
+#custom-sr_end {
+    box-shadow: 0 4px 22px @shadow-dark,
+                0 1px 6px @shadow-soft;
+}
+
+/* ── PILL CAPS ── */
 #custom-r_end {
-    border-radius: 0px 19px 19px 0px;
-    margin-right: 8px;
-    padding-right: 0px;
+    border-radius: 0 999px 999px 0;
+    margin-right: 9px;
+    padding-right: 3px;
+    border-right: 1px solid @glass-border;
+    border-top: 1px solid @glass-rim-top;
+    border-bottom: 1px solid @glass-rim-bottom;
 }
 
 #custom-l_end {
-    border-radius: 19px 0px 0px 19px;
-    margin-left: 8px;
-    padding-left: 0px;
+    border-radius: 999px 0 0 999px;
+    margin-left: 9px;
+    padding-left: 3px;
+    border-left: 1px solid @glass-border;
+    border-top: 1px solid @glass-rim-top;
+    border-bottom: 1px solid @glass-rim-bottom;
 }
 
 #custom-sr_end {
-    border-radius: 0px;
-    margin-right: 8px;
-    padding-right: 0px;
+    border-radius: 0;
+    margin-right: 9px;
+    padding-right: 3px;
+    border-right: 1px solid @glass-border;
+    border-top: 1px solid @glass-rim-top;
+    border-bottom: 1px solid @glass-rim-bottom;
 }
 
 #custom-sl_end {
-    border-radius: 0px;
-    margin-left: 8px;
-    padding-left: 0px;
+    border-radius: 0;
+    margin-left: 9px;
+    padding-left: 3px;
+    border-left: 1px solid @glass-border;
+    border-top: 1px solid @glass-rim-top;
+    border-bottom: 1px solid @glass-rim-bottom;
 }
 
 #custom-rr_end {
-    border-radius: 0px 7px 7px 0px;
-    margin-right: 8px;
-    padding-right: 0px;
+    border-radius: 0 14px 14px 0;
+    margin-right: 9px;
+    padding-right: 3px;
+    border-right: 1px solid @glass-border;
+    border-top: 1px solid @glass-rim-top;
+    border-bottom: 1px solid @glass-rim-bottom;
 }
 
 #custom-rl_end {
-    border-radius: 7px 0px 0px 7px;
-    margin-left: 8px;
-    padding-left: 0px;
+    border-radius: 14px 0 0 14px;
+    margin-left: 9px;
+    padding-left: 3px;
+    border-left: 1px solid @glass-border;
+    border-top: 1px solid @glass-rim-top;
+    border-bottom: 1px solid @glass-rim-bottom;
 }
 
+/* ── Neon accents ── */
+#clock {
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px @neon-glow-soft;
+}
+
+#custom-spotify {
+    color: @neon-green;
+    text-shadow: 0 0 8px @neon-green-glow;
+}
+
+#custom-power {
+    color: @neon-red;
+    text-shadow: 0 0 8px @neon-red-glow;
+}
+
+#custom-notifications {
+    text-shadow: 0 0 6px @neon-glow-soft;
+}
+
+#battery.warning {
+    color: @neon-yellow;
+    text-shadow: 0 0 7px @neon-yellow;
+}
+
+#battery.critical {
+    color: @neon-red;
+    text-shadow: 0 0 10px @neon-red;
+    /* animation: blink 1s step-end infinite; */
+}
+
+#pulseaudio.muted {
+    color: @muted-fg;
+}
+
+@keyframes blink {
+    50% { opacity: 0.35; }
+}
